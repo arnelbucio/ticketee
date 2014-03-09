@@ -17,3 +17,7 @@ end
 group :test do
   gem 'capybara'
 end
+
+group :development do
+  gem 'spring-commands-rspec'
+end
