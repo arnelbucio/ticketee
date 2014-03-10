@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+gem 'bcrypt-ruby'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
