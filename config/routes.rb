@@ -5,6 +5,7 @@ Ticketee::Application.routes.draw do
   post "/signin", to: "sessions#create"
 
   namespace :admin do
+    root 'base#index'
     resources :users
   end
 
