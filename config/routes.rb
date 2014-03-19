@@ -3,10 +3,15 @@ Ticketee::Application.routes.draw do
 
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
+  delete "signout", to: "sessions#destroy", as: "signout"
 
   namespace :admin do
     root 'base#index'
-    resources :users
+    resources :users do
+      resources :permissions
+      put "permissions", to: "permissions#set",
+                         as: "set_permissions"
+    end
   end
 
   resources :projects do
