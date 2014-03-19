@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :permissions
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
 
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
