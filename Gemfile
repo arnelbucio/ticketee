@@ -27,4 +27,5 @@ end
 
 group :development do
   gem 'spring-commands-rspec'
+  gem 'better_errors'
 end
