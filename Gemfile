@@ -18,11 +18,14 @@ gem 'carrierwave'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'quiet_assets'
 end
 
 group :test do
   gem 'capybara'
   gem 'launchy'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
