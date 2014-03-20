@@ -1,0 +1,69 @@
++++ Battery Status
+/sys/class/power_supply/BAT0/manufacturer                   = Notebook
+/sys/class/power_supply/BAT0/model_name                     = M1110
+/sys/class/power_supply/BAT0/cycle_count                    = (not supported)
+/sys/class/power_supply/BAT0/charge_full_design             =   4400 [mAh]
+/sys/class/power_supply/BAT0/charge_full                    =   3558 [mAh]
+/sys/class/power_supply/BAT0/charge_now                     =    402 [mAh]
+
+5e6a1d68
+
+mybro
+00:1f:fb:75:20:7b
+admin: userx3:cha123x
+guest: smartxd0:cha123
+
+00:1F:FB:75:20:7B
+001FFB75207B
+
+wan mac 00:1f:fb:75:20:7b
+wmx auth a-id 001FFB75207B@smartbro.net
+
+wan mac 00:1F:FB:83:15:24
+wmx auth a-id 001FFB831524@smartbro.net
+00:1F:FB:83:15:24 x
+
+00:1F:FB:83:15:4D
+001FFB83154D
+
+00:1F:FB:83:0D:B1 unstable
+001FFB830DB1
+
+00:1F:FB:84:60:D8
+001FFB8460D8
+
+00:1F:FB:77:6A:4A
+001FFB776A4A
+
+myBROWIFI78EE06
+
+
+asdasd123kj12hcxc@yopmail.net
+358568040472072
+
+
+Phone: BlackBerry 9850
+IMEI: 358568040472072
+PRD: PRD-40497-005
+Your unlock code(s):
+MEP2/Network Code: 3369514937423706
+
+mt7109
+wimax
+sncfg dset WAN_MAC 00:1F:FB:77:6A:4A
+sncfg dset LAN_MAC 00:1F:FB:77:6A:4A
+sncfg dset WMX_ANONYMOUS_ID 001FFB776A4A@smartbro.net
+sncfg dset WMX_USER_NAME 001FFB776A4A
+sncfg dset WMX_PASSW smart1_lancelot
+sncfg dset WMX_FREQ_LIST 2337500,2347500,2357500,2345000,2355000,2365000
+sncfg dset WMX_GEMTEK_FREQUENCY_RANGE_LH_BOUND 2300000KHz-2400000KHz
+sncfg dset WMX_IGNORE_CERT 1
+sncfg dset MGMT_WEB_WAN 0
+sncfg dset MGMT_TELNET_WAN 0
+sncfg dset MGMT_SSH_WAN 0
+sncfg commit
+/factoryreset.sh
+
+myBROWIFI830DB1
+
+
