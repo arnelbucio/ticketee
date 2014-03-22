@@ -1,4 +1,5 @@
 class Admin::StatesController < ApplicationController
+
   def index
     @states = State.all
   end
@@ -15,6 +16,21 @@ class Admin::StatesController < ApplicationController
     else
       flash[:alert] = "State has not been created."
       render :new
+    end
+  end
+
+  def edit
+    @state = State.find(params[:id])
+  end
+
+  def update
+    @state = State.new(state_params)
+    if @state.save
+      flash[:notice] = "State has been updated."
+      redirect_to admin_states_path
+    else
+      flash[:alert] = "State has not been updated."
+      render :edit
     end
   end
 

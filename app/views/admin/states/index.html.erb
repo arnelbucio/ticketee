@@ -7,6 +7,7 @@
       <% if !state.default %>
         <%= link_to "Make Default", make_default_admin_state_path(state) %>
       <% end %>
+      <%= link_to "Edit State", edit_admin_state_path(state) %>
     </li>
   <% end %>
 </ul>
