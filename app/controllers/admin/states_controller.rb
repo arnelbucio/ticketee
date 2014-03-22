@@ -1,5 +1,5 @@
 class Admin::StatesController < ApplicationController
-
+  before_action :set_state, only: [:edit, :destroy, :make_default]
   def index
     @states = State.all
   end
@@ -20,7 +20,6 @@ class Admin::StatesController < ApplicationController
   end
 
   def edit
-    @state = State.find(params[:id])
   end
 
   def update
@@ -34,8 +33,13 @@ class Admin::StatesController < ApplicationController
     end
   end
 
+  def destroy
+    @state.destroy
+    flash[:notice] = "State has been deleted."
+    redirect_to admin_states_path
+  end
+
   def make_default
-    @state = State.find(params[:id])
     @state.default!
 
     flash[:notice] = "#{@state.name} is now the default state."
@@ -43,6 +47,10 @@ class Admin::StatesController < ApplicationController
   end
 
   private
+    def set_state
+      @state = State.find(params[:id])
+    end
+
     def state_params
       params.require(:state).permit(:name)
     end

@@ -7,7 +7,10 @@
       <% if !state.default %>
         <%= link_to "Make Default", make_default_admin_state_path(state) %>
       <% end %>
-      <%= link_to "Edit State", edit_admin_state_path(state) %>
+      <%= link_to "Edit", edit_admin_state_path(state) %>
+      <%= link_to "Delete", admin_state_path(state),
+                                  method: :delete,
+                                  data: { confirm: "Are you sure you want to delete this state?" } %>
     </li>
   <% end %>
 </ul>
