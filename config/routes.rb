@@ -12,7 +12,11 @@ Ticketee::Application.routes.draw do
       put "permissions", to: "permissions#set",
                          as: "set_permissions"
     end
-    resources "states"
+    resources "states" do
+      member do
+        get :make_default
+      end
+    end
   end
 
   resources :projects do

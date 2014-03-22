@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321101703) do
+ActiveRecord::Schema.define(version: 20140322041137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,10 @@ ActiveRecord::Schema.define(version: 20140321101703) do
     t.string   "background"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "default",    default: false
   end
+
+  add_index "states", ["name"], name: "index_states_on_name", unique: true, using: :btree
 
   create_table "tickets", force: true do |t|
     t.string   "title"
