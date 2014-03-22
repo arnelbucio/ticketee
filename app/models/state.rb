@@ -6,14 +6,8 @@ class State < ActiveRecord::Base
   end
 
   def default!
-    current_default_state = State.find_by_default(true)
+    State.find_by(default: true).try(:update!, default: false)
 
-    self.default = true
-    self.save!
-
-    if current_default_state
-      current_default_state.default = false
-      current_default_state.save!
-    end
+    update!(default: true)
   end
 end

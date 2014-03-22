@@ -79,7 +79,7 @@ feature "Assigning permissions" do
     sign_in_as!(user)
     click_link project.name
     click_link ticket.title
-    fill_in "Text",  with: "Opening this ticket."
+    fill_in "Text", with: "Opening this ticket."
     select "Open", from: "State"
     click_button "Create Comment"
 
