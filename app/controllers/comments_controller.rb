@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_filter :require_signin!
-  before_filter :set_ticket
+  before_action :require_signin!
+  before_action :set_ticket
 
   def create
     if cannot?(:"change states", @ticket.project)
