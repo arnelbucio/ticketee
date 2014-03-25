@@ -63,6 +63,7 @@ feature "Creating Tickets" do
   end
 
   scenario "Creating a ticket with tags" do
+    define_permission!(user, "tag", project)
     fill_in "Title",  with: "Non-standards compliance"
     fill_in "Description",  with: "My pages are ugly!"
     fill_in "Tags",  with: "browser visual"

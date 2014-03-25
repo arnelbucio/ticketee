@@ -3,9 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_ticket
 
   def create
-    if cannot?(:"change states", @ticket.project)
-      params[:comment].delete(:state_id)
-    end
+    sanitize_parameters!
 
     @comment = @ticket.comments.build(comment_params)
     @comment.user = current_user
@@ -25,6 +23,16 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:text, :state_id)
+      params.require(:comment).permit(:text, :state_id, :tag_names)
+    end
+
+    def sanitize_parameters!
+      if cannot?(:"change states", @ticket.project)
+        params[:comment].delete(:state_id)
+      end
+
+      if cannot?(:tag, @ticket.project)
+        params[:comment].delete(:tag_names)
+      end
     end
 end

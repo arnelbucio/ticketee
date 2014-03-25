@@ -65,5 +65,17 @@ describe TicketsController do
       message = "You cannot delete tickets from this project."
       expect(flash[:alert]).to eql(message)
     end
+
+    it "can create tickets, but not tag them" do
+      Permission.create(user: user,
+                        thing: project,
+                        action: "create tickets")
+      post :create, ticket: { title: "New ticket!",
+                              description: "Brand new ticket",
+                              tag_names: "foo bar"
+                            },
+                    project_id: project.id
+      expect(Ticket.last.tags).to be_empty
+    end
   end
 end

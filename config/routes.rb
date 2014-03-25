@@ -25,6 +25,7 @@ Ticketee::Application.routes.draw do
 
   resources :tickets do
     resources :comments
+    resources :tags
   end
 
   resources :files
