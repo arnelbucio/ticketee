@@ -29,7 +29,7 @@ class Ticket < ActiveRecord::Base
     end
 
     if terms.has_key?('state')
-      relation = joins(:state).where("states.name = ?". terms['state'])
+      relation = joins(:state).where("states.name = ?", terms['state'])
     end
 
     relation
