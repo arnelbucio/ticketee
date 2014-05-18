@@ -1,5 +1,5 @@
 <span class="tag">
-  <%= tag.name %>
+  <%= link_to tag.name, search_project_tickets_path(@ticket.project, search: "tag:#{tag.name}") %>
   <% if can?(:tag, @ticket.project) || current_user.admin? %>
     <%= link_to "x",
         ticket_tag_path(@ticket, tag),
