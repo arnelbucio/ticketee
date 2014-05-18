@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.3'
+ruby '2.1.2'
+gem 'rails', '4.1.1'
 
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
@@ -11,14 +12,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'bcrypt-ruby'
-gem 'cancan'
+gem 'cancancan'
 
 gem 'carrierwave'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'quiet_assets'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -33,4 +34,5 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'quiet_assets'
 end
