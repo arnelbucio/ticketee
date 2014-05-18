@@ -1,9 +1,10 @@
 language: ruby
 rvm:
   - 2.1.2
-  - 2.1.1
   - 2.1.0
+  - 2.0.0
 before_script:
   psql -c 'create database ticketee_test' -U postgres
 script:
-  - RAILS_ENV=test bundle exec rake spec
+  - bin/rake db:migrate RAILS_ENV=test
+  - bin/rspec
