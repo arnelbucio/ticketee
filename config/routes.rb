@@ -21,9 +21,8 @@ Ticketee::Application.routes.draw do
 
   resources :projects do
     resources :tickets do
-      collection do
-        get :search
-      end
+      get :search, on: :collection
+      post :watch, on: :member
     end
   end
 
