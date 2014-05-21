@@ -71,7 +71,6 @@ feature "Assigning permissions" do
   end
 
   scenario "Changing states for a ticket" do
-    pending
     check_permission_box "view", project
     check_permission_box "change_states", project
     click_button "Update"
