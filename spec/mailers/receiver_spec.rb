@@ -1,0 +1,29 @@
+require "spec_helper"
+
+describe Receiver do
+  let!(:ticket_owner) { FactoryGirl.create :user }
+  let!(:project) { FactoryGirl.create :project }
+  let!(:ticket) { FactoryGirl.create :ticket, project: project,
+                                     user: ticket_owner }
+  let!(:commenter) { FactoryGirl.create :user }
+  let!(:comment) do
+    Comment.new({
+      ticket: ticket,
+      user: commenter,
+      text: 'Text comment'
+      })
+  end
+
+  it "parses a reply from a comment update into a comment" do
+    original = Notifier.comment_updated(comment, ticket_owner)
+    reply_text = "This is a brand new comment"
+    reply = Mail.new(from: commenter.email,
+                     subject: "Re: #{original.subject}",
+                     body: %Q{#{reply_text}
+                       #{original.body}
+                     },
+                     to: original.reply_to)
+    expect { Receiver.parse(reply) }.to change(ticket.comments, :count).by(1)
+    expect(ticket.comments.last.text).to eql(reply_text)
+  end
+end
