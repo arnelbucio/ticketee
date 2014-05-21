@@ -7,4 +7,4 @@ before_script:
   psql -c 'create database ticketee_test' -U postgres
 script:
   - bin/rake db:migrate RAILS_ENV=test
-  - bin/rspec
+  - JS_SPECS=true bin/rspec
